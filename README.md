@@ -3,9 +3,9 @@
 These dotfiles are still a work in progress, and will be updated as time goes.
 
 The current installation process is for MacOS, however, Linux support will be added soon.  
-This basically means just install `stow` using the Linux package manager (or something).
+This basically means just install [stow](https://www.gnu.org/software/stow/) using the Linux package manager (or something).
 
-The `stow` package is being used to manage the symlinking of the dotfiles to the correct locations.
+The [stow](https://www.gnu.org/software/stow/) package is being used to manage the symlinking of the dotfiles to the correct locations.
 
 ## Dotfiles
 

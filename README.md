@@ -15,6 +15,7 @@ Dotfiles for the following applications / services can be found in this project:
 - Starship
 - Tmux
 - ZSH
+- Kitty
 
 Documentation for each of these will be added in due course.
 

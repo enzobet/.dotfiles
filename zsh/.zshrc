@@ -7,7 +7,15 @@ fi
 
 
 # Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
+if [ -e /home/enzo/.nix-profile/etc/profile.d/nix.sh ]; then 
+	# added by Nix installer
+	. /home/enzo/.nix-profile/etc/profile.d/nix.sh;
+	ZSH_PATH=$(nix-env -q --out-path oh-my-zsh | awk '{print $2}')
+else:
+	ZSH_PATH="$HOME/.oh-my-zsh"
+fi 
+
+export ZSH="$ZSH_PATH"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -135,3 +143,4 @@ export NVM_DIR="$HOME/.nvm"
 
 # Created by `pipx` on 2023-11-28 16:11:19
 export PATH="$PATH:/Users/enzo/.local/bin"
+

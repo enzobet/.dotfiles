@@ -30,7 +30,11 @@ nix-env -iA \
 	nixpkgs.gnumake \
 	nixpkgs.gcc \
 	nixpkgs.pyenv \
-  nixpkgs.pyenv
+	nixpkgs.kitty \
+	nixpkgs.starship \
+	nixpkgs.brave \
+	nixpkgs.chromium \
+	nixpkgs.oh-my-zsh
 
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 
@@ -45,9 +49,6 @@ command -v zsh | sudo tee -a /etc/shells
 
 # use zsh as default shell
 sudo chsh -s $(which zsh) $USER
-
-# install neovim plugins
-nvim --headless +PlugInstall +qall
 
 # Use kitty terminal on MacOS
 [ `uname -s` = 'Darwin' ] && stow kitty

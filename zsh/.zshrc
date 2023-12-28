@@ -10,8 +10,8 @@ fi
 if [ -e /home/enzo/.nix-profile/etc/profile.d/nix.sh ]; then 
 	# added by Nix installer
 	. /home/enzo/.nix-profile/etc/profile.d/nix.sh;
-	ZSH_PATH=$(nix-env -q --out-path oh-my-zsh | awk '{print $2}')
-else:
+	ZSH_PATH="$(nix-env -q --out-path oh-my-zsh | awk '{print $2}')/share/oh-my-zsh"
+else
 	ZSH_PATH="$HOME/.oh-my-zsh"
 fi 
 

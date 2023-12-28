@@ -34,7 +34,8 @@ nix-env -iA \
 	nixpkgs.starship \
 	nixpkgs.brave \
 	nixpkgs.chromium \
-	nixpkgs.oh-my-zsh
+	nixpkgs.oh-my-zsh \
+	nixpkgs.zsh-autosuggestions
 
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 

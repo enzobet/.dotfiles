@@ -1,7 +1,7 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 flavour=$(uname -s)
-if [ $flavour == "Darwin" ]; then
+if [ $flavour = "Darwin" ]; then
 	export PATH=$HOME/bin:/usr/local/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/opt/homebrew/opt/postgresql@15/bin:$PATH
 fi
 

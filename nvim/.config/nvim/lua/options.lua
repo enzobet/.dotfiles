@@ -4,6 +4,7 @@ vim.g.maplocalleader = ' '
 
 -- Disable backup files
 vim.go.backup = false
+vim.go.swapfile = false
 
 -- Disable search highlighting of all found matches
 vim.o.hlsearch = false

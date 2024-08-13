@@ -132,3 +132,7 @@ export NVM_DIR="$HOME/.nvm"
 
 # Created by `pipx` on 2023-11-28 16:11:19
 export PATH="$PATH:/Users/enzo/.local/bin"
+
+
+# AWS Stuff
+alias awsconf="source $HOME/.init-scripts/init-aws.env"

@@ -1,24 +1,29 @@
-theme = "nightfox"
+theme = "catppuccin_frappe"
 
 [editor]
 line-number = "relative"
 cursorline = true
 bufferline = "multiple"
-mouse = false
+mouse = true
+scrolloff = 10
 
 [editor.file-picker]
 hidden = false
 
 [editor.statusline]
 left = ["mode", "spinner", "version-control"]
-center = ["file-name"]
-right = ["position", "diagnostics", "file-encoding", "file-type"]
+center = ["file-modification-indicator", "file-name"]
+right = ["position", "total-line-numbers", "diagnostics", "file-type"]
 separator = "|"
 
 [editor.indent-guides]
 render = true
 character = "┆" # Some characters that work well: "▏", "┆", "┊", "⸽"
 skip-levels = 0
+
+[editor.lsp]
+enable = true
+display-inlay-hints = true
 
 [keys.normal]
 C-g = ":sh tmux popup -d \"#{pane_current_path}\" -xC -yC -w80% -h80% -E lazygit"

@@ -3,3 +3,9 @@ name = "python"
 language-servers = ["pyright"]
 formatter = { command = "black", args = ["-l 100"] }
 auto-format = true
+
+[[language]]
+name = "yaml"
+language-servers = ["yaml-language-server"]
+formatter = { command = "prettier", args = ["--parser", "yaml"] }
+auto-format = true

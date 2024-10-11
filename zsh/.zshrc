@@ -201,3 +201,4 @@ export BAT_THEME=tokyonight_night
 
 alias ls="eza --icons=always -A"
 alias lt="eza --icons=always --tree --color=always --level=3 -A --git-ignore"
+alias nv="nvim"

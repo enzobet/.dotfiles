@@ -63,6 +63,8 @@ require("lazy").setup({
 	},
 })
 
+vim.cmd.colorscheme(env_var_nvim_theme)
+
 -- Function to check if a file exists
 local function file_exists(file)
 	local f = io.open(file, "r")

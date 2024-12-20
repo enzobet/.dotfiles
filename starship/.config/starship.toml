@@ -6,10 +6,10 @@
 # [╰─cmd────❯](bold green)
 # """
 
-format = """
-[╭─project❯](bold blue) $directory$rust$git_branch$git_status$package$golang$terraform$docker_context$python$docker_context$nodejs
-[╰─cmd────❯](bold green)
-"""
+# format = """
+# [╭─project❯](bold blue) $directory$rust$git_branch$git_status$package$golang$terraform$docker_context$python$docker_context$nodejs
+# [╰─cmd────❯](bold green)
+# """
 
 # format = """
 # [╭─user───❯](bold blue) $username
@@ -17,10 +17,10 @@ format = """
 # [╰─cmd────❯](bold green) 
 # """
 
-# format = """
-# $directory$rust$git_branch$git_status$package$golang$terraform$docker_context$python$nodejs
-# ─❯ 
-# """
+format = """
+$directory$rust$git_branch$git_status$package$golang$terraform$docker_context$python$nodejs
+─❯ 
+"""
 
 [username]
 style_user = "green bold"
@@ -39,10 +39,10 @@ disabled = true
 [character]                            # The name of the module we are configuring is "character"
 success_symbol = "[➜](bold green)"     # The "success_symbol" segment is being set to "➜" with the color "bold green"
 error_symbol = "[✗](bold red)"
-#  
+
 # configure directory
 [directory]
-read_only = " "
+read_only = " 󰌾"
 truncation_length = 1
 truncate_to_repo = true # truncates directory to root folder if in github repo
 style = "bold italic blue"
@@ -61,9 +61,6 @@ symbol = " "
 
 [dart]
 symbol = " "
-
-#[directory]
-#read_only = " "
 
 [docker_context]
 symbol = " "
@@ -102,16 +99,16 @@ symbol = "λ "
 symbol = " "
 
 [memory_usage]
-symbol = " "
+symbol = "󰏗 "
 
 [nim]
-symbol = " "
+symbol = "󰆥 "
 
 [nix_shell]
 symbol = " "
 
 [package]
-symbol = " "
+symbol = "󰏗 "
 
 [perl]
 symbol = " "
@@ -120,7 +117,7 @@ symbol = " "
 symbol = " "
 
 [python]
-symbol = " "
+symbol = " "
 # pyenv_version_name = true
 format = 'via [${symbol} (${version} )(\($virtualenv\) )]($style)'
 style = "bold green"

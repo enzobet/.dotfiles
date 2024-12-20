@@ -1,6 +1,7 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$HOME/bin:/usr/local/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/opt/homebrew/opt/postgresql@15/bin:$PATH
+export XDG_CONFIG_HOME="$HOME/.config"
 
 
 # Path to your oh-my-zsh installation.
@@ -202,3 +203,10 @@ export BAT_THEME=tokyonight_night
 alias ls="eza --icons=always -A"
 alias lt="eza --icons=always --tree --color=always --level=3 -A --git-ignore"
 alias nv="nvim"
+
+source <(kubectl completion zsh)
+autoload bashcompinit && bashcompinit
+autoload -Uz compinit && compinit
+complete -C '/usr/local/bin/aws_completer' aws
+
+eval "$(zoxide init --cmd cd zsh)"

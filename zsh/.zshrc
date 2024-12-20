@@ -138,10 +138,22 @@ export PATH="$PATH:/Users/enzo/.local/bin"
 # AWS Stuff
 alias awsconf="source $HOME/.init-scripts/init-aws.env"
 
+# FD
+
+fd_=$(which fdfind)
+if [ $fd_ ]; then
+	alias fd="fdfind"
+fi
+
 # ---- FZF -----
 
 # Set up fzf key bindings and fuzzy completion
-eval "$(fzf --zsh)"
+fzf_=$(which fzf)
+if [ -f ~/.fzf.zsh ]; then
+	source ~/.fzf.zsh
+elif [ $fzf_ ]; then
+	eval "$(fzf --zsh)"
+fi
 
 # --- setup fzf theme ---
 fg="#CBE0F0"
@@ -204,9 +216,22 @@ alias ls="eza --icons=always -A"
 alias lt="eza --icons=always --tree --color=always --level=3 -A --git-ignore"
 alias nv="nvim"
 
-source <(kubectl completion zsh)
-autoload bashcompinit && bashcompinit
-autoload -Uz compinit && compinit
-complete -C '/usr/local/bin/aws_completer' aws
+# ---- kubectl -----
+
+kubectl_=$(which kubectl)
+if [ $kubectl_ ]; then
+  source <(kubectl completion zsh)
+fi
+
+# ---- awscli -----
+
+aws_=$(which aws)
+if [ $aws_ ]; then
+  autoload bashcompinit && bashcompinit
+  autoload -Uz compinit && compinit
+  complete -C '/usr/local/bin/aws_completer' aws
+fi
+
+# ---- zoxide -----
 
 eval "$(zoxide init --cmd cd zsh)"

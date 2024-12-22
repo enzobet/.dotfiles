@@ -19,12 +19,12 @@ font pango:monospace 8
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
 
-# GET DEM BORDERS OUT OF HEREc:w
+# GET DEM BORDERS OUT OF HERE
 #
 # Thanks Childz
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 0
                           # class                 border  backgr. text    indicator child_border
-for_window [class="^.*"] client.focused          #77dd77 #285577 #ffffff #2e9ef4   #285577
+for_window [class="^.*"] client.focused          #512DA8 #212121 #512DA8 #757575 #757575
 
 # use these keys for focus, movement, and resize directions when reaching for
 # the arrows is not convenient
@@ -216,3 +216,21 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 
 # Suspend
 bindsym $mod+Shift+period exec systemctl suspend
+
+# Colours
+
+client.background #212121
+client.focused #512DA8 #212121 #512DA8 #757575 #757575
+client.unfocused #512DA8 #212121 #512DA8 #BDBDBD
+client.focused_inactive #512DA8 #212121 #512DA8 #BDBDBD #BDBDBD
+client.urgent #512DA8 #212121 #212121 #BDBDBD #BDBDBD
+client.placeholder #512DA8 #212121 #212121 #BDBDBD #BDBDBD
+
+# Gaps
+
+gaps inner 5px
+gaps outer 6px
+smart_gaps off
+
+default_border pixel 0
+default_floating_border pixel 0

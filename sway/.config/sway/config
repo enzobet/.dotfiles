@@ -17,7 +17,9 @@ set $right l
 set $term kitty
 # Your preferred application launcher
 # set $menu wmenu-run
-set $menu wofi --show run | xargs swaymsg exec
+# set $menu wofi --show run | xargs swaymsg exec
+set $launcher fuzzel
+set $menu nwg-drawer
 
 ### Output configuration
 #
@@ -69,7 +71,10 @@ output * background ~/Pictures/opabvpejbcvd1.png fill
     bindsym $mod+Shift+q kill
 
     # Start your launcher
-    bindsym $mod+d exec $menu
+    bindsym $mod+d exec $launcher
+
+    # Start the menu
+    bindsym $mod+Shift+d exec $menu
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -209,39 +214,6 @@ bindsym $mod+r mode "resize"
     # Special key to take a screenshot with grim
     bindsym Print exec grim
 
-#
-# Status Bar:
-#
-# Read `man 5 sway-bar` for more information about this section.
-bar {
-    position top
-    swaybar_command waybar
-    #
-    # # When the status_command prints a new line to stdout, swaybar updates.
-    # # The default just shows the current date and time.
-    # status_command while date +'%Y-%m-%d %X'; do sleep 1; done
-    #
-    # colors {
-    #     statusline #ffffff
-    #     background #323232
-    #     inactive_workspace #32323200 #32323200 #5c5c5c
-    # }
-}
 
-# 
-# Borders
-#
-# smart_borders on
-gaps inner 10
-gaps outer 5
-default_border pixel 3
-for_window [class=".*"] border pixel 1
-# corner_radius 10
-# shadows enable
-# shadows_on_csd enable
-# shadow_blur_radius 20
-# blur enable
-# blur passes 2
-# blur_radius 3
-
-include /etc/sway/config.d/*
+# include /etc/sway/config.d/*
+include $HOME/.config/sway/config.d/*

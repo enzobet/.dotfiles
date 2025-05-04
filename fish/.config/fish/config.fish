@@ -1,15 +1,19 @@
 
 # Set PATH
-set -x PATH /opt/homebrew/bin /usr/local/bin /opt/homebrew/sbin /opt/homebrew/opt/postgresql@15/bin $HOME/.local/bin $PATH
+set -x PATH /usr/local/bin $HOME/.local/bin $PATH
 
 # Set editor
 set -U EDITOR nvim
 
-# Set default shell
-set -U SHELL /opt/homebrew/bin/fish
+
+if test -d /opt/homebrew
+  set -x PATH /opt/homebrew/bin /opt/homebrew/sbin /opt/homebrew/opt/postgresql@15/bin $PATH
+  # Set default shell
+  set -U SHELL /opt/homebrew/bin/fish
+end
 
 # Starship
-# starship init fish | source
+starship init fish | source
 
 # Zoxide
 zoxide init --cmd cd fish | source
@@ -59,8 +63,6 @@ end
 
 # ---- aliases -----
 
-alias awsconf="envsource $HOME/.init-scripts/init-aws.env"
-
 alias c="cursor"
 alias nv="nvim"
 
@@ -71,14 +73,19 @@ alias gtipp="gt push"
 alias gtc="gt commit"
 alias gta="gt add"
 
-alias a="aws --profile enzo-admin-sso"
-alias ams="aws --profile chemify-org-maryhill-staging-admin-sso --region eu-west-1"
-alias amp="aws --profile chemify-org-maryhill-prod-admin-sso --region eu-west-1"
-alias ampp="aws --profile chemify-org-maryhill-pre-prod-admin-sso --region eu-west-1"
-alias amvpn="aws --profile chemify-org-vpn-services-admin-sso --region eu-west-1"
+if command -q aws
+  alias awsconf="envsource $HOME/.init-scripts/init-aws.env"
+  alias a="aws --profile enzo-admin-sso"
+  alias ams="aws --profile chemify-org-maryhill-staging-admin-sso --region eu-west-1"
+  alias amp="aws --profile chemify-org-maryhill-prod-admin-sso --region eu-west-1"
+  alias ampp="aws --profile chemify-org-maryhill-pre-prod-admin-sso --region eu-west-1"
+  alias amvpn="aws --profile chemify-org-vpn-services-admin-sso --region eu-west-1"
+end
 
-alias k="kubectl"
-alias ka="k -n argocd"
+if command -q kubectl
+  alias k="kubectl"
+  alias ka="k -n argocd"
+end
 
 alias cls="clear"
 

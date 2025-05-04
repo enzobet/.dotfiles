@@ -1,6 +1,9 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH=$HOME/bin:/usr/local/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/opt/homebrew/opt/postgresql@15/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+if [ -d /opt/homebrew ]; then
+  export PATH=/opt/homebrew/bin:/opt/homebrew/sbin:/opt/homebrew/opt/postgresql@15/bin:$PATH
+fi
 export XDG_CONFIG_HOME="$HOME/.config"
 
 

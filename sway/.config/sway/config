@@ -25,7 +25,7 @@ set $menu nwg-drawer
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # output * background /usr/share/endeavouros/backgrounds/endeavouros-wallpaper-dark.png fill
-output * background ~/Pictures/opabvpejbcvd1.png fill
+output * background ~/Pictures/728908.jpg fill
 #
 # Example configuration:
 #

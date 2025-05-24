@@ -13,7 +13,9 @@ sudo pacman -S git base-devel cmak nina curl less dhcpcd
 sudo pacman -S vulkan-tools vulkan-radeon
 
 # Install yay
-sudo pacman -S --needed yay
+git clone https://aur.archlinux.org/yay.git /tmp/yay
+cd /tmp/yay
+makepkg -si --noconfirm --needed
 
 # hyprland requirements
 sudo pacman -S \

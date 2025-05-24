@@ -94,3 +94,6 @@ alias tmx="tmuxifier load-session"
 alias tmxl="tmuxifier list-sessions"
 alias tml="tmux list-sessions"
 alias tma="tmux a"
+
+# ---- defaults -----
+nvm use lts

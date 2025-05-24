@@ -28,6 +28,10 @@ sudo pacman -S \
     pavucontrol \
     waybar
 
+yay -Ss \
+    hyprshot \
+    swaync
+
 # Shell utilities
 sudo pacman -S \
     eza \

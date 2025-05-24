@@ -37,7 +37,6 @@
             "all-outputs": true,
             "active-only": false,
             "on-click": "activate",
-            "disable-scroll": false,
             "on-scroll-up": "hyprctl dispatch workspace -1",
             "on-scroll-down": "hyprctl dispatch workspace +1",
             "persistent-workspaces": {
@@ -48,7 +47,6 @@
             "rotate": 0,
             "separate-outputs": true,
             "rewrite": {
-                "khing@archlinux:(.*)": "$1 ",
                 "(.*) — Mozilla Firefox": "$1 󰈹",
                 "(.*)Mozilla Firefox": "Firefox 󰈹",
                 "(.*) - Visual Studio Code": "$1 󰨞",
@@ -66,6 +64,7 @@
                 "(.*)Github": "Github ",
                 "(.*)Spotify Free": "Spotify 󰓇",
                 "(.*)Spotify Premiun": "Spotify 󰓇",
+                "(.*)nv(.*)": "Neovim"
             },
             "max-length": 50
         },
@@ -148,7 +147,7 @@
 			"shutdown": "systemctl poweroff",
 			"reboot": "systemctl reboot",
 			"suspend": "systemctl suspend",
-                        "logout": "swaymsg exit"
+                        "logout": "hyprctl dispatch exit"
 		}
     }
 }

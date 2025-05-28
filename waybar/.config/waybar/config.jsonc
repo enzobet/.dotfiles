@@ -8,21 +8,21 @@
     // Choose the order of the modules
     "modules-left": [
         "custom/arch",
-        "hyprland/workspaces",
+        "hyprland/workspaces"
     ],
     "modules-center": [
         "hyprland/window"
     ],
     "modules-right": [
-        "idle_inhibitor",
+        "tray",
+        // "idle_inhibitor",
         "pulseaudio",
         "network",
-        "power-profiles-daemon",
+        // "power-profiles-daemon",
         "cpu",
         "memory",
         "temperature",
         "clock",
-        "tray",
         "custom/power"
     ],
     // Modules configuration
@@ -39,9 +39,16 @@
             "on-click": "activate",
             "on-scroll-up": "hyprctl dispatch workspace -1",
             "on-scroll-down": "hyprctl dispatch workspace +1",
+            "format": "{name}{icon}",
+            "format-icons": {
+                "1": "",
+                "2": "󰖟",
+                "default": ""
+            },
             "persistent-workspaces": {
+                "*": 2
             }
-        },
+    },
     "hyprland/window": {
             "format": "  {}",
             "rotate": 0,
@@ -64,7 +71,7 @@
                 "(.*)Github": "Github ",
                 "(.*)Spotify Free": "Spotify 󰓇",
                 "(.*)Spotify Premiun": "Spotify 󰓇",
-                "(.*)nv(.*)": "Neovim"
+                "(.*)nv(.*)": "Neovim "
             },
             "max-length": 50
         },
@@ -89,7 +96,7 @@
         "tooltip": false
     },
     "memory": {
-        "format": "{}% "
+        "format": "{}% 󰍛"
     },
     "temperature": {
         // "thermal-zone": 2,
@@ -97,7 +104,7 @@
         "critical-threshold": 80,
         // "format-critical": "{temperatureC}°C {icon}",
         "format": "{temperatureC}°C {icon}",
-        "format-icons": ["", "", ""]
+        "format-icons": ["", "", ""]
     },
     "power-profiles-daemon": {
       "format": "{icon}",
@@ -113,9 +120,9 @@
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
         "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ipaddr}/{cidr} ",
-        "tooltip-format": "{ifname} via {gwaddr} ",
-        "format-linked": "{ifname} (No IP) ",
+        "format-ethernet": "{ipaddr}/{cidr} ",
+        "tooltip-format": "{ifname} via {gwaddr} 󱘖",
+        "format-linked": "{ifname} (No IP) 󰈀",
         "format-disconnected": "Disconnected ⚠",
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },

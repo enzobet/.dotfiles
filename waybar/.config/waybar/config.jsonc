@@ -39,9 +39,9 @@
             "on-click": "activate",
             "on-scroll-up": "hyprctl dispatch workspace -1",
             "on-scroll-down": "hyprctl dispatch workspace +1",
-            "format": "{name}{icon}",
+            "format": "{name} {icon}",
             "format-icons": {
-                "1": "",
+                "1": "",
                 "2": "󰖟",
                 "default": ""
             },

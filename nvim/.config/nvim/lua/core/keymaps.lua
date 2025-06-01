@@ -37,7 +37,7 @@ vim.keymap.set("n", "<Right>", ":vertical resize +2<CR>", opts)
 -- Buffers
 vim.keymap.set("n", "<Tab>", ":bnext<CR>", opts)
 vim.keymap.set("n", "<S-Tab>", ":bprevious<CR>", opts)
-vim.keymap.set("n", "<leader>x", ":Bdelete!<CR>", opts) -- close buffer
+vim.keymap.set("n", "<leader>x", ":bdelete!<CR>", opts) -- close buffer
 vim.keymap.set("n", "<leader>b", "<cmd> enew <CR>", opts) -- new buffer
 
 -- Increment/decrement numbers
@@ -70,8 +70,8 @@ vim.keymap.set("v", "<", "<gv", opts)
 vim.keymap.set("v", ">", ">gv", opts)
 
 -- Move text up and down
--- vim.keymap.set('v', '<A-j>', ':m .+1<CR>==', opts)
--- vim.keymap.set('v', '<A-k>', ':m .-2<CR>==', opts)
+vim.keymap.set('v', '<A-j>', ':m .+1<CR>==', opts)
+vim.keymap.set('v', '<A-k>', ':m .-2<CR>==', opts)
 
 -- Keep last yanked when pasting
 vim.keymap.set("v", "p", '"_dP', opts)
@@ -103,5 +103,5 @@ vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { desc = "Open float
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
 
 -- Save and load session
-vim.keymap.set("n", "<leader>ss", ":Neotree close<CR>:mksession! .session.vim<CR>", { noremap = true, silent = false })
-vim.keymap.set("n", "<leader>sl", ":source .session.vim<CR>", { noremap = true, silent = false })
+-- vim.keymap.set("n", "<leader>ss", ":Neotree close<CR>:mksession! .session.vim<CR>", { noremap = true, silent = false })
+-- vim.keymap.set("n", "<leader>sl", ":source .session.vim<CR>", { noremap = true, silent = false })

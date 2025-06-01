@@ -56,7 +56,7 @@ return {
     local filename = {
       'filename',
       file_status = true, -- displays file status (readonly status, modified status)
-      path = 0,           -- 0 = just filename, 1 = relative path, 2 = absolute path
+      path = 1,           -- 0 = just filename, 1 = relative path, 2 = absolute path
     }
 
     local hide_in_width = function()
@@ -92,9 +92,12 @@ return {
         component_separators = { left = '', right = '' },
         disabled_filetypes = { 'alpha', 'neo-tree', 'Avante' },
         always_divide_middle = true,
+        refresh = {
+            statusline = 100,
+        },
       },
       sections = {
-        lualine_a = { mode },
+        lualine_a = { },
         lualine_b = { 'branch' },
         lualine_c = { filename },
         lualine_x = { diagnostics, diff, { 'encoding', cond = hide_in_width }, { 'filetype', cond = hide_in_width } },

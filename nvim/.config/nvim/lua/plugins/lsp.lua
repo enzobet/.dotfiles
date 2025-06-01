@@ -10,7 +10,7 @@ return { -- LSP Configuration & Plugins
 		-- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
 		{
 			"j-hui/fidget.nvim",
-			tag = "v1.4.0",
+			tag = "v1.6.1",
 			opts = {
 				progress = {
 					display = {

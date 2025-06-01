@@ -7,7 +7,7 @@ return {
 		-- Fuzzy Finder Algorithm which requires local dependencies to be built.
 		-- Only load if `make` is available. Make sure you have the system
 		-- requirements installed.
-		{
+        {
 			"nvim-telescope/telescope-fzf-native.nvim",
 			build = "make",
 			cond = function()
@@ -15,6 +15,7 @@ return {
 			end,
 		},
 		"nvim-telescope/telescope-ui-select.nvim",
+        "nvim-telescope/telescope-file-browser.nvim",
 
 		-- Useful for getting pretty icons, but requires a Nerd Font.
 		"nvim-tree/nvim-web-devicons",
@@ -75,6 +76,7 @@ return {
 					override_file_sorter = true,
 					case_mode = "smart_case",
 				},
+                ["file_browser"] = {}
 			},
 			git_files = {
 				previewer = true,
@@ -84,7 +86,9 @@ return {
 		-- Enable telescope fzf native, if installed
 		pcall(require("telescope").load_extension, "fzf")
 		pcall(require("telescope").load_extension, "ui-select")
+        pcall(require("telescope").load_extension, "file_browser")
 
+        vim.keymap.set("n", "<leader>fb", ":Telescope file_browser<CR>", { desc = "[F]ile [B]rowser" })
 		vim.keymap.set("n", "<leader>?", builtin.oldfiles, { desc = "[?] Find recently opened files" })
 		vim.keymap.set("n", "<leader>sb", builtin.buffers, { desc = "[S]earch existing [B]uffers" })
 		vim.keymap.set("n", "<leader>sm", builtin.marks, { desc = "[S]earch [M]arks" })

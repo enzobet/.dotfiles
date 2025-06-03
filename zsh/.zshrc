@@ -8,7 +8,7 @@ export XDG_CONFIG_HOME="$HOME/.config"
 
 
 # Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
+# export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -32,7 +32,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # HYPHEN_INSENSITIVE="true"
 
 # Uncomment one of the following lines to change the auto-update behavior
-zstyle ':omz:update' mode disabled  # disable automatic updates
+# zstyle ':omz:update' mode disabled  # disable automatic updates
 # zstyle ':omz:update' mode auto      # update automatically without asking
 # zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
@@ -87,9 +87,9 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#636363,bold,underline"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git python aws terraform nvm docker pyenv zsh-autosuggestions)
+# plugins=(git python aws terraform nvm docker pyenv zsh-autosuggestions)
 
-source $ZSH/oh-my-zsh.sh
+# source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
@@ -135,7 +135,7 @@ export NVM_DIR="$HOME/.nvm"
 
 
 # Created by `pipx` on 2023-11-28 16:11:19
-export PATH="$PATH:/Users/enzo/.local/bin"
+export PATH="$PATH:$HOME/.local/bin"
 
 
 # AWS Stuff
@@ -217,7 +217,6 @@ export BAT_THEME=tokyonight_night
 
 alias ls="eza --icons=always -A"
 alias lt="eza --icons=always --tree --color=always --level=3 -A --git-ignore"
-alias nv="nvim"
 
 # ---- kubectl -----
 
@@ -235,6 +234,31 @@ if [ $aws_ ]; then
   complete -C '/usr/local/bin/aws_completer' aws
 fi
 
+
 # ---- zoxide -----
 
 eval "$(zoxide init --cmd cd zsh)"
+
+# ---- tmuxifier -----
+if [ -d $HOME/.tmux/plugins/tmuxifier ]; then
+  export PATH="$HOME/.tmux/plugins/tmuxifier/bin:$PATH"
+  export TMUXIFIER_LAYOUT_PATH="$HOME/.config/tmuxifier"
+  if ! [ -d $TMUXIFIER_LAYOUT_PATH ]; then
+    mkdir -p $TMUXIFIER_LAYOUT_PATH
+  fi
+  eval "$(tmuxifier init -)"
+fi
+
+# ---- aliases -----
+
+alias c="cursor"
+alias nv="nvim"
+
+alias lg="lazygit"
+
+alias a="aws --profile enzo-admin-sso"
+
+alias k="kubectl"
+alias ka="k -n argocd"
+
+alias cls="clear"

@@ -72,6 +72,9 @@ return { -- LSP Configuration & Plugins
 				--  See `:help K` for why this keymap
 				map("K", vim.lsp.buf.hover, "Hover Documentation")
 
+                -- LSP formatting
+                map("<leader>cf", function() vim.lsp.buf.format { async = true } end, "[C]ode [F]ormat")
+
 				-- WARN: This is not Goto Definition, this is Goto Declaration.
 				--  For example, in C this would take you to the header
 				map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")

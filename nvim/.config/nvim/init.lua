@@ -28,6 +28,7 @@ require("lazy").setup({
   require("plugins.treesitter"),
   require("plugins.lsp"),
   require("plugins.autocomplete"),
+  require("plugins.copilot"),
   require("plugins.none-ls"),
   require("plugins.lualine"),
   --   require("plugins.bufferline"),
@@ -40,6 +41,7 @@ require("lazy").setup({
   require("plugins.misc"),
   require("plugins.aerial"),
   require("plugins.harpoon"),
+  require("plugins.sidekick")
 })
 
 vim.cmd.colorscheme(env_var_nvim_theme)

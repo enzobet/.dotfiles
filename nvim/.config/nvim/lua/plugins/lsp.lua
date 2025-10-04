@@ -1,3 +1,40 @@
+-- return {
+--     {
+--         "neovim/nvim-lspconfig",
+--     },
+--     {
+--         "mason-org/mason.nvim",
+--         opts = {},
+--     },
+--     {
+--         "mason-org/mason-lspconfig.nvim",
+--         dependencies = {
+--             "mason-org/mason.nvim",
+--             "neovim/nvim-lspconfig",
+--         },
+--         opts = {
+--             ensure_installed = {
+--                 "html",
+--                 "ts_ls",
+--                 "lua_ls",
+--                 "dockerls",
+--                 "docker_compose_language_service",
+--                 "ruff",
+--                 -- "pyright",
+--                 "jsonls",
+--                 "sqlls",
+--                 "terraformls",
+--                 "yamlls",
+--                 "bashls",
+--                 "cssls",
+--                 "ltex",
+--                 "texlab",
+--             },
+--         },
+--     }
+-- }
+
+-- TODO: Updatet to use mason-org and not williamboman repos
 return { -- LSP Configuration & Plugins
 	"neovim/nvim-lspconfig",
 	dependencies = {

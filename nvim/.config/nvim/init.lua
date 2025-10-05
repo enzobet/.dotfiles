@@ -29,7 +29,7 @@ require("lazy").setup({
   require("plugins.lsp"),
   require("plugins.autocomplete"),
   require("plugins.copilot"),
-  -- require("plugins.none-ls"),
+  require("plugins.formatting"),
   require("plugins.lualine"),
   --   require("plugins.bufferline"),
   -- require("plugins.neo-tree"),

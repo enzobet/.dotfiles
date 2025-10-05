@@ -13,17 +13,11 @@ end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
 -- Import color theme based on environment variable NVIM_THEME
-local default_color_scheme = "catppuccin"
-local env_var_nvim_theme = os.getenv("NVIM_THEME") or default_color_scheme
+local default_color_scheme = "tokyonight"
 
--- Define a table of theme modules
-local themes = {
-  catppuccin = "plugins.themes.catppuccin",
-  -- onedark = 'plugins.themes.onedark',
-}
 
 require("lazy").setup({
-  require(themes[env_var_nvim_theme]),
+  require("plugins.themes"),
   require("plugins.telescope"),
   require("plugins.treesitter"),
   require("plugins.lsp"),
@@ -44,7 +38,7 @@ require("lazy").setup({
   require("plugins.sidekick")
 })
 
-vim.cmd.colorscheme(env_var_nvim_theme)
+vim.cmd.colorscheme(default_color_scheme)
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

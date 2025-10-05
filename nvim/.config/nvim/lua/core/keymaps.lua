@@ -1,4 +1,4 @@
--- Keymaps for better default experience
+-- Keymaps for better default experiencekey
 
 -- Set leader key
 vim.g.mapleader = " "
@@ -92,7 +92,7 @@ vim.keymap.set("n", "<leader>do", function()
     if diagnostics_active then
         vim.diagnostic.enable(true)
     else
-        vim.diagnostic.disable(false)
+        vim.diagnostic.enable(false)
     end
 end)
 

@@ -63,7 +63,6 @@ end
 
 # ---- aliases -----
 
-alias c="cursor"
 alias nv="nvim"
 
 alias lg="lazygit"

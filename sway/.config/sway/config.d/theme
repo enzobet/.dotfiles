@@ -4,8 +4,8 @@ exec_always ~/.config/sway/scripts/import-gsettings
 # Borders
 #
 # smart_borders on
-gaps inner 10
-gaps outer 5
+gaps inner 8
+gaps outer 2
 default_border pixel 3
 for_window [class=".*"] border pixel 1
 # corner_radius 10
@@ -20,9 +20,9 @@ for_window [class=".*"] border pixel 1
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
-bar {
-    position top
-    swaybar_command waybar
+# bar {
+#     position top
+#     swaybar_command waybar
     #
     # # When the status_command prints a new line to stdout, swaybar updates.
     # # The default just shows the current date and time.
@@ -33,4 +33,4 @@ bar {
     #     background #323232
     #     inactive_workspace #32323200 #32323200 #5c5c5c
     # }
-}
+# }

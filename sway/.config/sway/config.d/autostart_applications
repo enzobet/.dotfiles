@@ -1,3 +1,6 @@
+# Gnome Keyring
+exec /usr/bin/gnome-keyring-daemon --start --components=secrets,ssh
+
 # Import environment variables for user systemd service manager
 exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
 
@@ -7,6 +10,9 @@ exec hash dbus-update-activation-environment 2>/dev/null && \
 
 # Network Applet
 exec nm-applet --indicator
+
+# Noctalia Shell
+exec qs -c noctalia-shell
 
 # Desktop notifications
 exec mako

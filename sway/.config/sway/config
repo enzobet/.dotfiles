@@ -20,6 +20,7 @@ set $term kitty
 # set $menu wofi --show run | xargs swaymsg exec
 set $launcher fuzzel
 set $menu nwg-drawer
+set $browser zen-browser
 
 ### Output configuration
 #
@@ -66,6 +67,9 @@ output * background ~/Pictures/728908.jpg fill
 #
     # Start a terminal
     bindsym $mod+Return exec $term
+
+    # Start the browser
+    bindsym $mod+z exec $browser
 
     # Kill focused window
     bindsym $mod+Shift+q kill

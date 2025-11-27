@@ -26,7 +26,7 @@ set $browser zen-browser
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # output * background /usr/share/endeavouros/backgrounds/endeavouros-wallpaper-dark.png fill
-output * background ~/Pictures/728908.jpg fill
+output * background ~/wallpapers/tiger_dragon_yin_yang.jpeg fill
 #
 # Example configuration:
 #

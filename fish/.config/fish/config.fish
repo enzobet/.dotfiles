@@ -19,7 +19,7 @@ starship init fish | source
 zoxide init --cmd cd fish | source
 
 # Pyenv
-pyenv init - | source
+#pyenv init - | source
 
 # Eza
 alias ls="eza --icons=always -A"
@@ -96,3 +96,10 @@ alias tma="tmux a"
 
 # ---- defaults -----
 nvm use lts
+
+# pnpm
+set -gx PNPM_HOME "/home/enzo/.local/share/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end

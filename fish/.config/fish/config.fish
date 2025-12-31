@@ -95,7 +95,7 @@ alias tml="tmux list-sessions"
 alias tma="tmux a"
 
 # ---- defaults -----
-nvm use lts
+nvm use --silent lts
 
 # pnpm
 set -gx PNPM_HOME "/home/enzo/.local/share/pnpm"

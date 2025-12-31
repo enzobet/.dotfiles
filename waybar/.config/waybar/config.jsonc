@@ -41,12 +41,8 @@
             "on-scroll-down": "hyprctl dispatch workspace +1",
             "format": "{name} {icon}",
             "format-icons": {
-                "1": "",
-                "2": "󰖟",
-                "default": ""
-            },
-            "persistent-workspaces": {
-                "*": 2
+                "active": "",
+                "default": ""
             }
     },
     "hyprland/window": {

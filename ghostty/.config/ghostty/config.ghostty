@@ -1,0 +1,8 @@
+config-file = ?auto/theme.ghostty
+
+font-family = "Hack Nerd Font"
+gtk-tabs-location = "hidden"
+#gtk-tabs-location = "top"
+gtk-toolbar-style = "flat"
+gtk-titlebar-style = "native"
+gtk-wide-tabs = "false"

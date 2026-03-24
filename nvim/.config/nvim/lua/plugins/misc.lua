@@ -1,11 +1,15 @@
 -- Standalone plugins with less than 10 lines of config go here
+local is_vscode = vim.g.vscode ~= nil
+
 return {
     {
         "moll/vim-bbye",
+        cond = not is_vscode,
     },
     {
         -- tmux & split window navigation
         "christoomey/vim-tmux-navigator",
+        cond = not is_vscode,
     },
     -- {
     --     -- autoclose tags
@@ -26,6 +30,7 @@ return {
     {
         -- Hints keybinds
         "folke/which-key.nvim",
+        cond = not is_vscode,
         opts = {
             -- win = {
             --   border = {

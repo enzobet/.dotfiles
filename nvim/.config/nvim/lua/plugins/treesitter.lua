@@ -1,8 +1,11 @@
 -- Highlight, edit, and navigate code
+local is_vscode = vim.g.vscode ~= nil
+
 return {
     {
 	"nvim-treesitter/nvim-treesitter",
     branch = "master",
+    cond = not is_vscode,
 	build = ":TSUpdate",
 	dependencies = {
 		"nvim-treesitter/nvim-treesitter-textobjects",

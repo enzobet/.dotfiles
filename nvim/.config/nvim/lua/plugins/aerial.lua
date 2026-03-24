@@ -1,5 +1,8 @@
+local is_vscode = vim.g.vscode ~= nil
+
 return {
     "stevearc/aerial.nvim",
+    cond = not is_vscode,
     lazy_load = true,
     opts = {},
     -- Optional dependencies

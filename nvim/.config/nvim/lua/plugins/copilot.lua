@@ -1,3 +1,5 @@
+local is_vscode = vim.g.vscode ~= nil
+
 return {
   -- LSP-based Copilot implementation
   {
@@ -10,6 +12,7 @@ return {
     --         end,
     --     }
     -- },
+    cond = not is_vscode,
     cmd = "Copilot",
     event = "InsertEnter",
     config = function()

@@ -1,6 +1,9 @@
 -- Adds git related signs to the gutter, as well as utilities for managing changes
+local is_vscode = vim.g.vscode ~= nil
+
 return {
     "lewis6991/gitsigns.nvim",
+    cond = not is_vscode,
     opts = {
         -- See `:help gitsigns.txt`
         signs = {

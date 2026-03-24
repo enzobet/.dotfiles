@@ -1,5 +1,8 @@
+local is_vscode = vim.g.vscode ~= nil
+
 return {
 	"ThePrimeagen/harpoon",
+    cond = not is_vscode,
 	branch = "harpoon2",
 	dependencies = { "nvim-lua/plenary.nvim" },
 	config = function()

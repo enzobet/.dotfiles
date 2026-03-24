@@ -1,5 +1,8 @@
+local is_vscode = vim.g.vscode ~= nil
+
 return {
   'stevearc/conform.nvim',
+  cond = not is_vscode,
   event = { "BufWritePre" },
   cmd = { "ConformInfo" },
   keys = {

@@ -1,6 +1,9 @@
 -- Easily comment visual regions/lines
+local is_vscode = vim.g.vscode ~= nil
+
 return {
 	"numToStr/Comment.nvim",
+    cond = not is_vscode,
 	opts = {},
 	config = function()
 		local opts = { noremap = true, silent = true }

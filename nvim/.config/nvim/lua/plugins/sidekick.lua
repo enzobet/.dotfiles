@@ -1,5 +1,8 @@
+local is_vscode = vim.g.vscode ~= nil
+
 return {
   "folke/sidekick.nvim",
+  cond = not is_vscode,
   opts = {
     -- add any options here
     cli = {

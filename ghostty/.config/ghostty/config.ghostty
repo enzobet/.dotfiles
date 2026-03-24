@@ -1,6 +1,15 @@
 config-file = ?auto/theme.ghostty
 
 font-family = "Hack Nerd Font"
+
+background-opacity = 0.92
+
+# window-decoration = "none"
+
+# Mac
+macos-titlebar-style = "hidden"
+
+# Linux
 gtk-tabs-location = "hidden"
 #gtk-tabs-location = "top"
 gtk-toolbar-style = "flat"

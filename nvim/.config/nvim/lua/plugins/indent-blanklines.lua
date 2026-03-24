@@ -1,5 +1,8 @@
+local is_vscode = vim.g.vscode ~= nil
+
 return {
 	"lukas-reineke/indent-blankline.nvim",
+    cond = not is_vscode,
 	main = "ibl",
 	opts = {
 		indent = {

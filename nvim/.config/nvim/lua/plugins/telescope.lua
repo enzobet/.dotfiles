@@ -1,7 +1,10 @@
 -- Fuzzy Finder (files, lsp, etc)
+local is_vscode = vim.g.vscode ~= nil
+
 return {
 	"nvim-telescope/telescope.nvim",
 	branch = "0.1.x",
+    cond = not is_vscode,
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		-- Fuzzy Finder Algorithm which requires local dependencies to be built.

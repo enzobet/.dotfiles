@@ -1,6 +1,9 @@
 -- Set lualine as statusline
+local is_vscode = vim.g.vscode ~= nil
+
 return {
   'nvim-lualine/lualine.nvim',
+  cond = not is_vscode,
   config = function()
     -- Adapted from: https://github.com/nvim-lualine/lualine.nvim/blob/master/lua/lualine/themes/onedark.lua
     local colors = {

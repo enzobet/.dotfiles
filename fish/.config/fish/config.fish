@@ -1,3 +1,4 @@
+set fish_greeting ""
 
 # Set PATH
 set -x PATH /usr/local/bin $HOME/.local/bin $PATH
@@ -13,7 +14,7 @@ if test -d /opt/homebrew
 end
 
 # Starship
-starship init fish | source
+# starship init fish | source
 
 # Zoxide
 zoxide init --cmd cd fish | source

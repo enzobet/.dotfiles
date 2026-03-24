@@ -1,5 +1,8 @@
+local is_vscode = vim.g.vscode ~= nil
+
 return {
 	"kdheepak/lazygit.nvim",
+    cond = not is_vscode,
 	cmd = {
 		"LazyGit",
 		"LazyGitConfig",

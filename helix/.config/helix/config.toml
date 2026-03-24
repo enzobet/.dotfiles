@@ -1,4 +1,4 @@
-theme = "enzo"
+theme = "catppuccin_mocha"
 
 [editor]
 line-number = "relative"
@@ -6,6 +6,10 @@ cursorline = true
 bufferline = "multiple"
 mouse = true
 scrolloff = 10
+text-width = 100
+atomic-save = false
+default-yank-register = "+"
+auto-format = false
 
 [editor.file-picker]
 hidden = false
@@ -25,5 +29,10 @@ skip-levels = 0
 enable = true
 display-inlay-hints = true
 
-[keys.normal]
-C-g = ":sh tmux popup -d \"#{pane_current_path}\" -xC -yC -w80% -h80% -E lazygit"
+[editor.soft-wrap]
+enable = true
+
+[keys.normal.space]
+x = ":bc!" # Close the current buffer
+v = ":vsplit"
+h = ":hsplit"

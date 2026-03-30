@@ -107,7 +107,7 @@ return {
                 "yamlls",
                 "bashls",
                 "cssls",
-                "ltex",
+                "ltex_plus",
                 "texlab",
             },
         },

@@ -1,0 +1,30 @@
+#:schema https://github.com/joshmedeski/sesh/raw/main/sesh.schema.json
+
+cache = false
+
+[[session]]
+name = "config"
+path = "~/.dotfiles"
+windows = [ "dotfiles" ]
+
+[[window]]
+name = "dotfiles"
+startup_script = "nv ."
+
+# Example session management
+
+# [[session]]
+# name = "Downloads 📥"
+# path = "~/Downloads"
+# startup_command = "ls"
+#
+# [[session]]
+# name = "tmux config"
+# path = "~/c/dotfiles/.config/tmux"
+# startup_command = "nvim tmux.conf"
+# preview_command = "bat --color=always ~/c/dotfiles/.config/tmux/tmux.conf"
+# windows = [ "git" ]
+#
+# [[window]]
+# name = "git"
+# startup_script = "git pull"

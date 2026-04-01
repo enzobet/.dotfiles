@@ -5,11 +5,11 @@ cache = false
 [[session]]
 name = "config"
 path = "~/.dotfiles"
-windows = [ "dotfiles" ]
+windows = ["dotfiles"]
 
 [[window]]
 name = "dotfiles"
-startup_script = "nv ."
+startup_script = "nv"
 
 # Example session management
 

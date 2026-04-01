@@ -25,7 +25,7 @@ require("lazy").setup({
 	require("plugins.linting"),
 	require("plugins.lualine"),
 	--   require("plugins.bufferline"),
-	-- require("plugins.neo-tree"),
+	require("plugins.neo-tree"),
 	require("plugins.indent-blanklines"),
 	require("plugins.lazygit"),
 	require("plugins.comment"),

@@ -30,6 +30,11 @@ return {
             sh         = { "shfmt" },
             toml       = { "taplo" },
         },
+        formatters = {
+            prettier = {
+                prepend_args = { "--single-quote" },
+            },
+        },
         default_format_opts = { lsp_format = "never" },
         format_on_save = { timeout_ms = 500 },
     },

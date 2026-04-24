@@ -1,32 +1,23 @@
--- Keymaps for better default experiencekey
-
--- Set leader key
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-
--- For conciseness
 local opts = { noremap = true, silent = true }
 
--- Disable the spacebar key's default behavior in Normal and Visual modes
-vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true, desc = "Disable space key (use as leader)" })
+vim.g.mapleader = " "
+
+vim.keymap.set("n", "<leader><leader>", function()
+    vim.cmd("so")
+end)
 
 -- Allow moving the cursor through wrapped lines with j, k
 vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true, desc = "Move up by screen line when wrapped" })
 vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true, desc = "Move down by screen line when wrapped" })
 
--- clear highlights
-vim.keymap.set("n", "<Esc>", ":noh<CR>", vim.tbl_extend("force", opts, { desc = "Clear search highlights" }))
+vim.keymap.set("n", "J", "mzJ`z")
+vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "move down in buffer with cursor centered" })
+vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "move up in buffer with cursor centered" })
+vim.keymap.set("n", "n", "nzzzv")
+vim.keymap.set("n", "N", "Nzzzv")
 
--- delete single character without copying into register
-vim.keymap.set("n", "x", '"_x', vim.tbl_extend("force", opts, { desc = "Delete char without yanking" }))
-
--- Vertical scroll and center
-vim.keymap.set("n", "<C-d>", "<C-d>zz", vim.tbl_extend("force", opts, { desc = "Half-page down and center" }))
-vim.keymap.set("n", "<C-u>", "<C-u>zz", vim.tbl_extend("force", opts, { desc = "Half-page up and center" }))
-
--- Find and center
-vim.keymap.set("n", "n", "nzzzv", { desc = "Next search result centered" })
-vim.keymap.set("n", "N", "Nzzzv", { desc = "Previous search result centered" })
+vim.keymap.set("v", "<", "<gv", opts)
+vim.keymap.set("v", ">", ">gv", opts)
 
 -- Resize with arrows
 vim.keymap.set("n", "<Up>", ":resize -2<CR>", vim.tbl_extend("force", opts, { desc = "Decrease window height" }))
@@ -39,10 +30,6 @@ vim.keymap.set("n", "<Tab>", ":bnext<CR>", vim.tbl_extend("force", opts, { desc 
 vim.keymap.set("n", "<S-Tab>", ":bprevious<CR>", vim.tbl_extend("force", opts, { desc = "Previous buffer" }))
 vim.keymap.set("n", "<leader>x", ":Bdelete!<CR>", vim.tbl_extend("force", opts, { desc = "Close buffer" })) -- close buffer
 vim.keymap.set("n", "<leader>b", "<cmd> enew <CR>", vim.tbl_extend("force", opts, { desc = "New buffer" })) -- new buffer
-
--- Increment/decrement numbers
-vim.keymap.set("n", "<leader>+", "<C-a>", vim.tbl_extend("force", opts, { desc = "Increment number" })) -- increment
-vim.keymap.set("n", "<leader>-", "<C-x>", vim.tbl_extend("force", opts, { desc = "Decrement number" })) -- decrement
 
 -- Window management
 vim.keymap.set("n", "<leader>v", "<C-w>v", vim.tbl_extend("force", opts, { desc = "Split window vertically" }))      -- split window vertically
@@ -65,10 +52,6 @@ vim.keymap.set("n", "<leader>tp", ":tabp<CR>", vim.tbl_extend("force", opts, { d
 -- Toggle line wrapping
 vim.keymap.set("n", "<leader>lw", "<cmd>set wrap!<CR>", vim.tbl_extend("force", opts, { desc = "Toggle line wrap" }))
 
--- Stay in indent mode
-vim.keymap.set("v", "<", "<gv", vim.tbl_extend("force", opts, { desc = "Indent left and keep selection" }))
-vim.keymap.set("v", ">", ">gv", vim.tbl_extend("force", opts, { desc = "Indent right and keep selection" }))
-
 -- Move text up and down
 vim.keymap.set("v", "<A-j>", ":m .+1<CR>==", vim.tbl_extend("force", opts, { desc = "Move line down" }))
 vim.keymap.set("v", "<A-k>", ":m .-2<CR>==", vim.tbl_extend("force", opts, { desc = "Move line up" }))
@@ -83,25 +66,14 @@ vim.keymap.set("n", "<leader>j", "*``cgn", vim.tbl_extend("force", opts, { desc 
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]], { desc = "Yank to system clipboard" })
 vim.keymap.set("n", "<leader>Y", [["+Y]], { desc = "Yank line to system clipboard" })
 
--- Toggle diagnostics
-local diagnostics_active = true
+-- Copy filepath to the clipboard
+vim.keymap.set("n", "<leader>fp", function()
+    local filePath = vim.fn.expand("%:~")
+    vim.fn.setreg("+", filePath)
+    print("File path copied to clipboard: " .. filePath)
+end, { desc = "Copy file path to clipboard" })
 
-vim.keymap.set("n", "<leader>do", function()
-    diagnostics_active = not diagnostics_active
-
-    if diagnostics_active then
-        vim.diagnostic.enable(true)
-    else
-        vim.diagnostic.enable(false)
-    end
-end, { desc = "Toggle diagnostics" })
-
--- Diagnostic keymaps
-vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic message" })
-vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next diagnostic message" })
-vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
-vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
-
--- Save and load session
--- vim.keymap.set("n", "<leader>ss", ":Neotree close<CR>:mksession! .session.vim<CR>", { noremap = true, silent = false })
--- vim.keymap.set("n", "<leader>sl", ":source .session.vim<CR>", { noremap = true, silent = false })
+-- restart 
+vim.keymap.set("n", "<leader>re", "<cmd>restart<cr>", {
+    desc = "Restart Neovim (:restart)",
+})

@@ -38,7 +38,7 @@ return {
                 liquid = { "prettier" },
                 lua = { "stylua" },
                 python = { "ruff_organize_imports", "ruff_format" },
-                markdown = { "mdformat" , "markdown-toc" },
+                markdown   = { "prettier" },
                 -- ["markdown.mdx"] = { "prettier", "markdownlint", "markdown-toc" },
             },
         -- format_on_save = {

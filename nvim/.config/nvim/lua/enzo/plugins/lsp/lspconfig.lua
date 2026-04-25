@@ -83,30 +83,6 @@ return {
             vim.diagnostic.config({ virtual_text = not current })
         end, { desc = "Toggle LSP virtual text" })
 
-        -- <leader>ll toggle between virtual text mode and precise hover mode
-        vim.keymap.set('n', '<leader>ll', function()
-            virtual_text_enabled = not virtual_text_enabled
-            update_diagnostic_config()
-
-            -- Clear autocmds first
-            vim.api.nvim_clear_autocmds({ group = augroup })
-
-            -- Enable hover only when virtual text is off
-            if not virtual_text_enabled then
-                vim.api.nvim_create_autocmd("CursorHold", {
-                    group = augroup,
-                    callback = function()
-                        if cursor_over_diagnostic() and not has_floating_win() then
-                            vim.diagnostic.open_float(nil, {
-                                focusable = false,
-                                close_events = { "CursorMoved", "CursorMovedI", "BufHidden", "InsertCharPre", "WinLeave" },
-                            })
-                        end
-                    end,
-                })
-            end
-        end, { desc = "Toggle LSP diagnostics virtual text or precise hover" })
-
         -- NOTE: Setup servers
         local cmp_nvim_lsp = require("cmp_nvim_lsp")
         local capabilities = cmp_nvim_lsp.default_capabilities()
@@ -129,12 +105,6 @@ return {
                     },
                     telemetry = {
                         enable = false,
-                    },
-                    workspace = {
-                        library = {
-                            [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-                            [vim.fn.stdpath("config") .. "/lua"] = true,
-                        },
                     },
                 },
             },
@@ -160,20 +130,6 @@ return {
                 showSuggestionsAsSnippets = false,
                 syntaxProfiles = {},
                 variables = {},
-            },
-        })
-
-        -- emmet_ls
-        vim.lsp.config("emmet_ls", {
-            filetypes = {
-                "html",
-                "typescriptreact",
-                "javascriptreact",
-                "css",
-                "sass",
-                "scss",
-                "less",
-                "svelte",
             },
         })
 
@@ -272,12 +228,11 @@ return {
 
         -- Instead of using mason enable all configured LSP via `automatic_enable=true`
         -- Prefer more control by enable manual server call below via vim.lsp.enable("")
-        -- mason config: lua/sethy/plugins/lsp/mason.lua:22
+        -- mason config: lua/xxx/plugins/lsp/mason.lua:22
         vim.lsp.enable({
             "lua_ls",
             "cssls",
             "emmet_language_server",
-            "emmet_ls",
             "ts_ls",
             "astro",
             "tailwindcss",

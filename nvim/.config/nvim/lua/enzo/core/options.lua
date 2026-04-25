@@ -30,6 +30,7 @@ vim.opt.inccommand = "split"
 vim.opt.background = "dark"
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
+vim.o.completeopt = "menuone,noselect,preview"        -- Set completeopt to have a better completion experience
 
 -- folding (for nvim-ufo)
 vim.o.foldenable = true
@@ -51,9 +52,9 @@ vim.opt.mouse = "a"
 
 -- Hightlight yanking
 vim.api.nvim_create_autocmd("TextYankPost", {
-    desc = "Highlight when yanking (copying) text",
-    callback = function()
-        vim.hl.on_yank()
-    end,
+	desc = "Highlight when yanking (copying) text",
+	callback = function()
+		vim.hl.on_yank()
+	end,
 })
 

@@ -33,9 +33,7 @@ return {
                 "html",
                 "cssls",
                 "tailwindcss",
-                "angularls",
                 "astro",
-                "emmet_ls",
                 "emmet_language_server",
                 "marksman",
                 "ruff",
@@ -50,7 +48,6 @@ return {
                 "stylua",
                 "isort",
                 "pylint",
-                "denols",
             },
         })
     end,

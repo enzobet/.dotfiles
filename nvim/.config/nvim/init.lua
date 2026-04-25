@@ -13,4 +13,4 @@ require('vim._core.ui2').enable({
 
 require('enzo.core')
 require('enzo.lazy')
--- require('current-theme')
+require('current-theme')

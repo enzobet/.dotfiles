@@ -15,7 +15,7 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.smartindent = false
-vim.opt.wrap = false
+vim.opt.wrap = true
 
 -- backup and undo
 vim.opt.swapfile = false
@@ -28,9 +28,12 @@ vim.opt.inccommand = "split"
 
 -- UI
 vim.opt.background = "dark"
-vim.opt.scrolloff = 8
+vim.o.scrolloff = 10                                  -- minimal number of screen lines to keep above and below the cursor
+vim.o.sidescrolloff = 10                              -- minimal number of screen columns either side of cursor if wrap is `false`
 vim.opt.signcolumn = "yes"
 vim.o.completeopt = "menuone,noselect,preview"        -- Set completeopt to have a better completion experience
+vim.o.hlsearch = false                                -- Set highlight on search
+vim.o.showtabline = 2                                 -- always show tabs
 
 -- folding (for nvim-ufo)
 vim.o.foldenable = true
@@ -45,10 +48,13 @@ vim.opt.splitbelow = true
 -- misc
 vim.opt.guicursor = ""
 vim.opt.isfname:append("@-@")
-vim.opt.updatetime = 50
+vim.o.updatetime = 50                                -- Decrease update time
+vim.o.timeoutlen = 300                                -- time to wait for a mapped sequence to complete (in milliseconds)
 vim.opt.colorcolumn = "0"
 vim.opt.clipboard:append("unnamedplus")
 vim.opt.mouse = "a"
+vim.opt.shortmess:append("c")                         -- don't give |ins-completion-menu| messages
+vim.opt.iskeyword:append("-")                         -- hyphenated words recognized by searches
 
 -- Hightlight yanking
 vim.api.nvim_create_autocmd("TextYankPost", {

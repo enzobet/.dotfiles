@@ -2,7 +2,7 @@ return {
     -- for all git plugins 
 	{
 		"tpope/vim-fugitive",
-        enabled = false,
+        -- enabled = false,
         config = function()
             vim.keymap.set("n", "<leader>gg", "<cmd>tabnew | Git | only<cr>", { desc = "Fugitive fullscreen tab", })
 

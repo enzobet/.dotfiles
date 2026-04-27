@@ -343,7 +343,7 @@ return {
 
                     -- Tailwind color handling using native (menu hl for fg-only square)
                     if entry.source.name == "nvim_lsp" then
-                        local entryItem = entry:get_completion_item()
+                        local entryItem = entry.completion_item
                         local color = entryItem.documentation
 
                         if color and type(color) == "string" and color:match "^#%x%x%x%x%x%x$" then

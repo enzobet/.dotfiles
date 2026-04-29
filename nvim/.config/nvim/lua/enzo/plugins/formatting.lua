@@ -50,15 +50,14 @@ return {
 
 		-- Configure individual formatters
 		conform.formatters.prettier = {
-			args = {
-				"--stdin-filepath",
-				"$FILENAME",
-				"--tab-width",
-				"2",
-				"--use-tabs",
-				"false",
-                "--single-quote",
-			},
+			args = function(_, ctx)
+				local args = { "--stdin-filepath", "$FILENAME", "--tab-width", "2", "--use-tabs", "false" }
+				local single_quote_fts = { javascript = true, typescript = true, javascriptreact = true, typescriptreact = true }
+				if single_quote_fts[vim.bo[ctx.buf].filetype] then
+					table.insert(args, "--single-quote")
+				end
+				return args
+			end,
 		}
 		conform.formatters.shfmt = {
 			prepend_args = { "-i", "4" },

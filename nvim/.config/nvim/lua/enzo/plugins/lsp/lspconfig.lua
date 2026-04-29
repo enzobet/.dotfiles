@@ -215,6 +215,19 @@ return {
             },
         })
 
+        -- eslint
+        vim.lsp.config("eslint", {
+            filetypes = {
+                "javascript",
+                "javascriptreact",
+                "typescript",
+                "typescriptreact",
+            },
+            settings = {
+                workingDirectories = { mode = "auto" },
+            },
+        })
+
         -- astro
         vim.lsp.config("astro", {
             filetypes = { "astro" },
@@ -234,6 +247,7 @@ return {
             "cssls",
             "emmet_language_server",
             "ts_ls",
+            "eslint",
             "astro",
             "tailwindcss",
             "marksman",

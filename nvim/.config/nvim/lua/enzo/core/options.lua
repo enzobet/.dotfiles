@@ -56,6 +56,16 @@ vim.opt.mouse = "a"
 vim.opt.shortmess:append("c")                         -- don't give |ins-completion-menu| messages
 vim.opt.iskeyword:append("-")                         -- hyphenated words recognized by searches
 
+-- auto-reload files changed outside nvim
+vim.opt.autoread = true
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHoldI" }, {
+    callback = function()
+        if vim.fn.mode() ~= "c" then
+            vim.cmd("checktime")
+        end
+    end,
+})
+
 -- Hightlight yanking
 vim.api.nvim_create_autocmd("TextYankPost", {
 	desc = "Highlight when yanking (copying) text",

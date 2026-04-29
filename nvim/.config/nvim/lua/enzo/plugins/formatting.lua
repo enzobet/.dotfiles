@@ -54,9 +54,10 @@ return {
 				"--stdin-filepath",
 				"$FILENAME",
 				"--tab-width",
-				"4",
+				"2",
 				"--use-tabs",
 				"false",
+                "--single-quote",
 			},
 		}
 		conform.formatters.shfmt = {

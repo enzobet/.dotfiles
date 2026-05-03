@@ -117,6 +117,13 @@ mouse_warping output
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+
+    # Screenshot a window
+    bindsym $mod+p exec sway-screenshot -m window
+    # Screenshot a monitor
+    # bindsym Print exec sway-screenshot -m output
+    # Screenshot a region
+    bindsym $mod+Shift+p exec sway-screenshot -m region --clipboard-only
 #
 # Moving around:
 #
@@ -242,7 +249,7 @@ bindsym $mod+r mode "resize"
     bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
     bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
     # Special key to take a screenshot with grim
-    bindsym Print exec grim
+    # bindsym Print exec grim
 
 
 # include /etc/sway/config.d/*

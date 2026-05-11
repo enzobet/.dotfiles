@@ -80,11 +80,33 @@ if command -q aws
   alias amp="aws --profile chemify-org-maryhill-prod-admin-sso --region eu-west-1"
   alias ampp="aws --profile chemify-org-maryhill-pre-prod-admin-sso --region eu-west-1"
   alias amvpn="aws --profile chemify-org-vpn-services-admin-sso --region eu-west-1"
+  alias amlais="aws --profile chemify-org-ml-ai-staging-admin-sso --region eu-west-1"
+  alias amlaip="aws --profile chemify-org-ml-ai-prod-admin-sso --region eu-west-1"
+  alias aipl="aws --profile chemify-org-infra-platform-lab-admin-sso --region eu-west-1"
 end
 
 if command -q kubectl
-  alias k="kubectl"
-  alias ka="k -n argocd"
+  function kubectl --wraps kubectl
+    command kubecolor $argv
+  end
+
+  function k --wraps kubectl
+    command kubecolor $argv
+  end
+
+  function ka --wraps kubectl
+    command kubecolor -n argocd $argv
+  end
+end
+
+if command -q kubectx
+  function kx --wraps kubectx
+    command kubectx $argv
+  end
+
+  function kn --wraps kubens
+    command kubens $argv
+  end
 end
 
 alias cls="clear"
